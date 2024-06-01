@@ -1,0 +1,119 @@
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background: #f0f0f0;
+    position: relative;
+    overflow: hidden;
+}
+
+h1 {
+    margin-bottom: 20px;
+    z-index: 1;
+}
+
+.game-status {
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    color: #333;
+    z-index: 1;
+}
+
+.play-box {
+    padding: 10px;
+    border: 4px solid #333; /* Outline for the play box */
+    display: inline-block;
+    background-color: #fff;
+    z-index: 1;
+}
+
+.game-container {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 0;
+    z-index: 1;
+    background-color: #fff;
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    cursor: pointer;
+    transition: background 0.3s, border 0.3s;
+    border: 1px solid #333;
+    box-sizing: border-box;
+}
+
+.cell:hover {
+    background: #e0e0e0;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    z-index: 1;
+}
+
+/* Background squares */
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 50px);
+    grid-template-rows: repeat(auto-fill, 50px);
+    z-index: 0;
+}
+
+.background div {
+    width: 50px;
+    height: 50px;
+    background-color: #ddd;
+    animation: colorChange 10s infinite;
+}
+
+@keyframes colorChange {
+    0% { background-color: rgb(212, 127, 127); }
+    25% { background-color: rgb(227, 239, 227); }
+    50% { background-color: rgb(99, 99, 214); }
+    75% { background-color: rgb(251, 251, 121); }
+    100% { background-color: rgb(247, 123, 247); }
+}
+
+/* Message box */
+.message-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 40px;
+    background: white;
+    border: 4px solid #333;
+    z-index: 2;
+    display: none;
+    text-align: center;
+    width: 300px;
+    font-size: 1.5em;
+}
+
+.message-box button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+}
